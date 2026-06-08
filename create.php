@@ -1,39 +1,37 @@
 <?php
 
-include("db.php");
-
+include 'Database.php';
 if(isset($_POST['submit'])){
-    $name = $_POST['name'];
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
     $email = $_POST['email'];
-    $course = $_POST['course'];
+    $gender = $_POST['gender'];
+    $password = $_POST['password'];
 
-    $query = "INSERT INTO students(name,email,course)
-              VALUES('$name','$email','$course')";  
-    
-    mysqli_query($conn,$query);
 
-    header("Location: index.php");
-            
+$sql = "insert into students(firstname, lastname,email,gender,password)
+VALUES('$firstname','$lastname','$email','$gender','$password')";
+
+$result = $conn->query($sql);
+
+if(!$result){
+    echo "Failed to add new user";
+} else {
+    echo "New user added successfully";
 }
+
+$conn->close;
+
+}
+
 ?>
 
-<!DOCTYPE html>
 <html>
-    <head>
-        <title>Add Student</title>
-    </head>
-    <body>
 
-    <h1>Add Student</h1>
-    
-    <form method="POST">
-        <input type="text" name="name" placeholder="name" required><br><br>
+<a href="Signup.html">Back</a>
+<a href="read.php">View record from database</a>
 
-        <input type="email" name="email" placeholder="email" required><br><br>
-
-        <input type="text" name="course" placeholder="Course" required><br><br>
-
-        <button type="submit" name="submit">Save</button>
-    </form>
-</body>
 </html>
+
+
+
