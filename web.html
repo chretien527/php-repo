@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🧭LifeMap🌍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', cursive;
+      height: 100vh;
+      width: 100%;
+      background: url("back.png") no-repeat center center;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      padding-top: 50px;
+      color: rgb(0, 9, 128);
+    }
+    
+    body::before {
+      content: "";
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background: rgba(0,0,0,0.2);
+      z-index: 0;
+    }
+    h3 {
+      color: rgb(5, 5, 88);
+      align-self: flex-start;
+      margin-left: 50px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1; 
+    }
+    h1 {
+      font-weight:600;
+      text-align: center;
+      font-size: clamp(20px, 6vw, 90px);
+      text-transform: capitalize;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+      margin-top: 30px;
+      position: relative;
+      z-index: 1;
+    }
+    .map {
+      height: 200px;
+      max-width: 90%;
+      margin-top: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 1;
+    }
+    .map-video{
+      height:;
+      width: 2px;
+    }
+    @media (max-width: 768px) {
+      h1 {
+        font-size: clamp(25px, 8vw, 60px);
+      }
+      h3 {
+        margin-left: 20px;
+      }
+      .map {
+        height: 150px;
+      }
+    }
+    @media (max-height: 600px) {
+    body {
+        background-size: auto 100%;
+    }
+}
+@media (max-width: 480px) {
+    body {
+        background-size: auto 100%;
+    }
+}
+@media (max-width: 600px) {
+  .lifemap-btn {
+    font-size: 16px;
+    padding: 12px 25px;
+  }
+}
+.map-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  height: 100%;
+  margin-top: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  z-index: 1;
+}
+
+.map-container img,
+.map-container video {
+  width: 60%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 15px;
+  transition: opacity 0.3s ease;
+}
+
+.map-container video {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.map-container:hover video {
+  opacity: 1;
+  height: 500px;
+  width: 500px;
+}
+
+.map-container:hover img {
+  opacity:0;
+}
+.btn {
+  margin-top: 40px;
+  padding: 14px 35px;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #0048ff, #00c6ff);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, #0030aa, #0099cc);
+}
+
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.btn-group{
+  gap: 20px;
+  display: flex;
+  position: absolute;
+  top: 10px;
+  right: 80px;
+}
+.plan {
+top:0px;
+}
+.footer{
+background:#456bca;
+}
+.progress{
+  width:900px;
+  height:100px;
+}
+  </style>
+</head>
+
+<body>
+  <h3 class="plan">Plan@LifeMap</h3>
+  <div class="btn-group">
+  <a class="btn" href="home.html">Home</a>
+  <a class="btn" href="about-us.html">About</a>
+  <a class="btn" href="plan.html">SamplePlan</a>
+  <a class="btn" href="Startplanning.html">Start Planning</a>
+  </div>
+   <div class="map-container">
+  <img src="pnt.png" alt="map" class="map">
+  <video class="map-video" muted loop autoplay>
+    <source src="map.mp4" type="video/mp4">
+  </video>
+</div>
+  <h1>working hard,<br>without working,<br>smart is wastage of time.</h1>
+</body>
+<footer class="footer">@life plan 🌍We are the best in the world🗺️
+  </footer>
+ <progress class="progress"></progress>
+ <img src="" alt="">
+</html>
