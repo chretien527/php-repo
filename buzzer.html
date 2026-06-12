@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Golden Buzzer Effect</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #111;
+      overflow: hidden;
+    }
+
+    .buzzer {
+      background: linear-gradient(45deg, #FFD700, #FFA500);
+      border: none;
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #111;
+      cursor: pointer;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.7);
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    .buzzer:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
+      50% { box-shadow: 0 0 40px rgba(255, 215, 0, 1); }
+      100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 20px;
+      background-color: gold;
+      opacity: 0.9;
+      transform: rotate(15deg);
+      animation: fall 3s linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="buzzer">BUZZ!</button>
+
+  <script>
+    const buzzer = document.querySelector('.buzzer');
+
+    buzzer.addEventListener('click', () => {
+      for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = Math.random() * window.innerWidth + 'px';
+        confetti.style.backgroundColor = randomColor();
+        document.body.appendChild(confetti);
+
+        // remove after animation
+        setTimeout(() => confetti.remove(), 3000);
+      }
+    });
+
+    function randomColor() {
+      const colors = ['#FFD700', '#FFA500', '#FF4500', '#FF69B4', '#00CED1', '#ADFF2F'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+  </script>
+</body>
+</html>
