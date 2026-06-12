@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ol{
+            margin: 5px;
+            background-color: orange;
+
+        }
+        ol>li{
+            list-style: none;
+        }
+        li::before{
+            content: '\2618';
+        }
+        li{
+            font-size: 2.5em;
+        }
+        li:nth-child(1){
+            background-color: darkblue;
+            color:red;
+        }
+        li:nth-child(3n+2){
+            background-color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ol>
+            <li>list items</li>
+            <li>list items</li>
+            <li>list items</li>
+            <li>list items</li>
+            <li>list items</li>
+            <li>list items</li>
+            <li>list items</li>
+            <li>list items</li>
+            <li>list items</li>
+            <li>list items</li>
+            <li>list items</li>
+            <li>list items</li>
+            <li>list items</li>
+            <li>list items</li>
+            <li>list items</li>
+            <li>list items</li>
+            <li>list items</li>
+            <li>list items</li>
+            <li>list items</li>
+            <li>list items</li>
+        </ol>
+    </div>
+</body>
+</html>
